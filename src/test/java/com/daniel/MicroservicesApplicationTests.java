@@ -1,4 +1,4 @@
-package com.daniel.microservicesapplication;
+package com.daniel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
