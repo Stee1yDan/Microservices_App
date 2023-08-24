@@ -37,6 +37,7 @@ class MicroservicesApplicationTests
     private ProductRepository productRepository;
 
     private ObjectMapper objectMapper = new ObjectMapper();
+
     @DynamicPropertySource
     static void setProperties(DynamicPropertyRegistry dynamicPropertyRegistry)
     {
@@ -48,11 +49,19 @@ class MicroservicesApplicationTests
     {
         String requestBody = objectMapper.writeValueAsString(createTestProductRequestBody());
         mockMvc.perform(MockMvcRequestBuilders
-                .post("/api/product/create")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(requestBody))
+                        .post("/api/product/create")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestBody))
                 .andExpect(status().isCreated());
         Assertions.assertEquals(1, productRepository.findAll().size());
+    }
+
+    @Test
+    void listProducts() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders
+                        .get("/api/product/list"))
+                .andExpect(status().isOk());
     }
 
     private ProductDTO createTestProductRequestBody()
