@@ -19,7 +19,7 @@ public class OrderService
     public void placeOrder(OrderDto orderDTO)
     {
         Order order = new Order();
-        order.setOrderNumber(LocalDate.now().toString() + " " + UUID.randomUUID().toString());
+        order.setOrderNumber(LocalDate.now().toString() + "-" + UUID.randomUUID().toString());
         order.setOrderItemList(orderDTO.getOrderItemDtoList()
                 .stream()
                 .map(OrderItemDtoMapper::toOrderItem)

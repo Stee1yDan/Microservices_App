@@ -2,6 +2,7 @@ package com.example.product_service.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,5 +21,6 @@ public class ProductDto
     private String name;
     private String description;
     @NotNull
+    @Positive
     private BigDecimal price;
 }

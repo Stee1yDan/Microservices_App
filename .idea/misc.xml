@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/Inventory_Service" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Order_Service/pom.xml" />
         <option value="$PROJECT_DIR$/Product_Service/pom.xml" />
+        <option value="$PROJECT_DIR$/Inventory_Service/pom.xml" />
       </list>
     </option>
   </component>

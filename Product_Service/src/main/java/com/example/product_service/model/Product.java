@@ -3,6 +3,7 @@ package com.example.product_service.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,5 +27,6 @@ public class Product
     private String name;
     private String description;
     @NotEmpty
+    @Positive
     private BigDecimal price;
 }
