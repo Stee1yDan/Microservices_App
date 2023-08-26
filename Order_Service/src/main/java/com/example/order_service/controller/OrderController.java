@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class OrderController
 {
     private final OrderService orderService;
-    @PostMapping("/create")
+    @PostMapping(value = "/create", consumes = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     public void placeOrder(@RequestBody OrderDto orderDto)
     {

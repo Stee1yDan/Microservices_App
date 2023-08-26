@@ -22,7 +22,8 @@ public class InventoryServiceApplication
     {
         return args ->
         {
-            inventoryRepository.save(new Inventory(1L, "12345", 1));
+            inventoryRepository.save(new Inventory(1L, "12342", 1));
+            inventoryRepository.save(new Inventory(2L, "12345", 0));
         };
     }
 
