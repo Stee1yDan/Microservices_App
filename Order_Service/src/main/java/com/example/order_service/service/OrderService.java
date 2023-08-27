@@ -29,16 +29,21 @@ public class OrderService
                 .map(OrderItemDtoMapper::toOrderItem)
                 .collect(Collectors.toList()));
 
-        if (allItemsAvailable(order.getOrderItemList().stream().map(orderItem -> orderItem.getSkuCode()).collect(Collectors.toList())))
+        if (allOrderItemsAreAvailable(order))
             orderRepository.save(order);
         else throw new RuntimeException("Some of requested items are unavailable");
     }
 
-    private Boolean allItemsAvailable(List<String> skuCodes)
+    private Boolean allOrderItemsAreAvailable(Order order)
     {
         return webClientBuilder.build().get()
                 .uri("http://inventory-service/api/inventory/isAvailable", uriBuilder ->
-                        uriBuilder.queryParam("skuCode",skuCodes).build())
+                        uriBuilder.queryParam("skuCode",
+                                        order.getOrderItemList()
+                                                .stream()
+                                                .map(orderItem -> orderItem.getSkuCode())
+                                                .collect(Collectors.toList()))
+                                .build())
                 .retrieve()
                 .bodyToMono(Boolean.class)
                 .block();

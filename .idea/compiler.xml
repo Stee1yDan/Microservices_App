@@ -7,6 +7,7 @@
       <directory url="file://$PROJECT_DIR$/Order_Service/src/main/resources/archetype-resources" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/Product_Service/src/main/resources/archetype-resources" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/Discovery_Server/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/Api_Gateway/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
@@ -15,6 +16,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Product_Service" />
+        <module name="Api_Gateway" />
         <module name="Order_Service" />
         <module name="Inventory_Service" />
         <module name="Discovery_Server" />
@@ -23,6 +25,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Api_Gateway" options="-parameters" />
       <module name="Discovery_Server" options="-parameters" />
       <module name="Inventory_Service" options="-parameters" />
       <module name="Order_Service" options="-parameters" />

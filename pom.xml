@@ -19,6 +19,7 @@
     <module>Order_Service</module>
     <module>Product_Service</module>
     <module>Discovery_Server</module>
+      <module>Api_Gateway</module>
   </modules>
 
   <dependencyManagement>
