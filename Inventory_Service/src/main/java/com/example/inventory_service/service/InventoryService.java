@@ -24,7 +24,7 @@ public class InventoryService
             throw new RuntimeException("Some of requested items do not exist");
 
         return inventoryRepository.findBySkuCodeIn(skuCodes.toArray(new String[skuCodes.size()]))
-                .stream().allMatch(inventory -> inventory.getQuantity() > 0);
+                .stream().allMatch(inventory -> inventory.get().getQuantity() > 0);
     }
 
 }
