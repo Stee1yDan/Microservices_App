@@ -20,7 +20,7 @@ public class OrderService
     private final OrderRepository orderRepository;
     private final WebClient.Builder webClientBuilder;
 
-    public void placeOrder(OrderDto orderDTO)
+    public String placeOrder(OrderDto orderDTO)
     {
         Order order = new Order();
         order.setOrderNumber(LocalDate.now() + "-" + UUID.randomUUID());
@@ -30,7 +30,10 @@ public class OrderService
                 .collect(Collectors.toList()));
 
         if (allOrderItemsAreAvailable(order))
+        {
             orderRepository.save(order);
+            return "Order saved successfully";
+        }
         else throw new RuntimeException("Some of requested items are unavailable");
     }
 

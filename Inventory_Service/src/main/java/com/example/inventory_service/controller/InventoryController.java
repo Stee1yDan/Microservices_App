@@ -17,13 +17,13 @@ public class InventoryController
     @ResponseStatus(HttpStatus.OK)
     public Boolean isItemAvailableInStock(@PathVariable("skuCode") String skuCode)
     {
-        return inventoryService.isItemInStock(skuCode);
+        return inventoryService.itemIsInStock(skuCode);
     }
 
     @GetMapping("/isAvailable")
     @ResponseStatus(HttpStatus.OK)
     public Boolean areItemsAvailableInStock(@RequestParam List<String> skuCode)
     {
-        return inventoryService.areItemsInStock(skuCode);
+        return inventoryService.itemsAreInStock(skuCode);
     }
 }
